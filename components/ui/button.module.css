@@ -1,0 +1,15 @@
+.btn{
+    margin-top: 10px;
+    color: white;
+    padding: 10px;
+    background-color: rgb(15, 104, 104);
+    border-radius: 10px;
+}
+
+.btn:focus{
+    visibility: hidden;
+}
+
+.btn:hover{
+    background-color: rgb(89, 199, 199);
+}
