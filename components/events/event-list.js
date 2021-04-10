@@ -3,7 +3,6 @@ import EventItem from "./event-item";
 
 const EventList = (props) => {
   const { items } = props;
-  console.log(items.map((item) => console.log("ffff")));
 
   return (
     <ul>
