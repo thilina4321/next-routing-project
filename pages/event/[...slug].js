@@ -1,20 +1,26 @@
 import {useRouter} from 'next/router'
-import {getFilteredEvents} from '../../dummy-data'
+import {getFilteredEvents} from '../../helper/http-util'
 import EventList from '../../components/events/event-list'
 import { Fragment } from 'react'
 
-const FilteredEventPage = ()=>{
+const FilteredEventPage = (props)=>{
     const router = useRouter()
 
-    const slug = router.query.slug
-    if(!slug){
-        return <p> Loading...... </p>
-    }
-    const year = +slug[0]
-    const month = +slug[1]
+    const {events,year,month} = props
+    // const slug = router.query.slug
+    // if(!slug){
+    //     return <p> Loading...... </p>
+    // }
+    // const year = +slug[0]
+    // const month = +slug[1]
 
-    const events = getFilteredEvents({month, year})
+    // const events = getFilteredEvents({month, year})
     console.log(events);
+    console.log(year,month);
+
+    if(!events){
+        return <p> Loading.... </p>
+    }
 
     if(events.length == 0){
         return <Fragment>
@@ -30,6 +36,23 @@ const FilteredEventPage = ()=>{
             <EventList items={events} />
         </div>
     )
+}
+
+export const getServerSideProps = async(context)=>{
+    const slug = context.params.slug
+    const year = +slug[0]
+    const month = +slug[1]
+
+    const events = await getFilteredEvents({month, year})
+
+    return {
+        props:{
+            events,
+            year,
+            month
+        }
+    }
+
 }
 
 export default FilteredEventPage
