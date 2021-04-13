@@ -1,6 +1,6 @@
 import Button from "../ui/button";
 import classes from "./event-item.module.css";
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const EventItem = (props) => {
   const { id, date, location, title, image } = props;

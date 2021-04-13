@@ -2,10 +2,11 @@ import { Fragment } from 'react'
 import {useRouter} from 'next/router'
 import EventDetails from '../../components/events/event-details'
 import { getEventById, getAllEvents } from '../../helper/http-util'
+import Comment from '../../components/input/comment'
 
 const SelectedEventPage = (props) => {
-    // const router = useRouter()
-    // const eventId = router.query.eventId
+    const router = useRouter()
+    const eventId = router.query.eventId
 
     const event = props.event
     if(!event){
@@ -18,6 +19,8 @@ const SelectedEventPage = (props) => {
         <Fragment>
             <EventDetails location={event.location} date={event.date} image={event.image}
             title={event.title} description={event.description}  />
+
+            <Comment eventId={eventId}/>
         </Fragment>
     )
 }

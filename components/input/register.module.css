@@ -1,0 +1,11 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    background-color: rgb(40, 70, 70);
+    color: white;
+}

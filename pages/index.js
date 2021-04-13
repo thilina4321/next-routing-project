@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import EventList from '../components/events/event-list'
+import RegisterEmail from '../components/input/register';
 import {geteaturedEvents} from '../helper/http-util'
 
 const HomePage = (props) => {
@@ -9,6 +10,7 @@ const HomePage = (props) => {
     <Head>
       <title> Event App </title>
     </Head>
+      <RegisterEmail />
       <EventList items={props.events} />
     </div>
   )
