@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import EventList from '../components/events/event-list'
 import {geteaturedEvents} from '../helper/http-util'
 
@@ -5,6 +6,9 @@ const HomePage = (props) => {
   console.log(props.events);
   return (
     <div>
+    <Head>
+      <title> Event App </title>
+    </Head>
       <EventList items={props.events} />
     </div>
   )
