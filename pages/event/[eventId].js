@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import {useRouter} from 'next/router'
 import EventDetails from '../../components/events/event-details'
 import { getEventById, getAllEvents } from '../../helper/http-util'
-import Comment from '../../components/input/comment'
+import CommentSection from '../../components/input/comment'
 
 const SelectedEventPage = (props) => {
     const router = useRouter()
@@ -20,7 +20,7 @@ const SelectedEventPage = (props) => {
             <EventDetails location={event.location} date={event.date} image={event.image}
             title={event.title} description={event.description}  />
 
-            <Comment eventId={eventId}/>
+            <CommentSection eventId={eventId}/>
         </Fragment>
     )
 }
